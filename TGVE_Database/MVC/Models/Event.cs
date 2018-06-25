@@ -11,7 +11,9 @@ namespace MVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,12 +21,14 @@ namespace MVC.Models
         {
             this.Bookings = new HashSet<Booking>();
         }
-    
+
         public int EventID { get; set; }
+
+        [DisplayName("Event Date")]
         public System.DateTime EventDate { get; set; }
         public decimal Fee { get; set; }
         public int TourID { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual Tour Tour { get; set; }

@@ -18,6 +18,7 @@ namespace MVC.Models
         public System.DateTime DateBooked { get; set; }
         public int ClientID { get; set; }
         public int EventID { get; set; }
+        public int BookingID { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Event Event { get; set; }

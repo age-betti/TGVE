@@ -49,7 +49,7 @@ namespace MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Payment,DateBooked,ClientID,EventID")] Booking booking)
+        public ActionResult Create([Bind(Include = "Payment,DateBooked,ClientID,EventID,BookingID")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Payment,DateBooked,ClientID,EventID")] Booking booking)
+        public ActionResult Edit([Bind(Include = "Payment,DateBooked,ClientID,EventID,BookingID")] Booking booking)
         {
             if (ModelState.IsValid)
             {

@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="36bdc82446254a92bcc0826f55881660" Name="Diagram1">
-        <EntityTypeShape EntityType="TGVEModel.Booking" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TGVEModel.Client" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TGVEModel.Event" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TGVEModel.Tour" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="TGVEModel.FK__Booking__ClientI__534D60F1" ManuallyRouted="false" />
-        <AssociationConnector Association="TGVEModel.FK__Booking__EventID__5441852A" ManuallyRouted="false" />
-        <AssociationConnector Association="TGVEModel.FK__Event__TourID__5535A963" ManuallyRouted="false" />
+      <Diagram DiagramId="a627f4d7e5f0401996e5c6b7ba62b2bc" Name="Diagram1">
+        <EntityTypeShape EntityType="TGVEModel.Booking" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGVEModel.Client" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGVEModel.Event" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGVEModel.Tour" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="TGVEModel.FK__Booking__ClientI__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="TGVEModel.FK__Booking__EventID__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="TGVEModel.FK__Event__TourID__66603565" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

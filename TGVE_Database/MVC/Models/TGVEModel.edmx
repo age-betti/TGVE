@@ -7,13 +7,13 @@
       <Schema Namespace="TGVEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Booking">
           <Key>
-            <PropertyRef Name="ClientID" />
-            <PropertyRef Name="EventID" />
+            <PropertyRef Name="BookingID" />
           </Key>
           <Property Name="Payment" Type="money" Nullable="false" />
           <Property Name="DateBooked" Type="date" Nullable="false" />
           <Property Name="ClientID" Type="int" Nullable="false" />
           <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="BookingID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -41,7 +41,7 @@
           <Property Name="TourName" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nchar" MaxLength="200" />
         </EntityType>
-        <Association Name="FK__Booking__ClientI__534D60F1">
+        <Association Name="FK__Booking__ClientI__6477ECF3">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -53,7 +53,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Booking__EventID__5441852A">
+        <Association Name="FK__Booking__EventID__656C112C">
           <End Role="Event" Type="Self.Event" Multiplicity="1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -65,7 +65,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Event__TourID__5535A963">
+        <Association Name="FK__Event__TourID__66603565">
           <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
@@ -82,15 +82,15 @@
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tour" EntityType="Self.Tour" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Booking__ClientI__534D60F1" Association="Self.FK__Booking__ClientI__534D60F1">
+          <AssociationSet Name="FK__Booking__ClientI__6477ECF3" Association="Self.FK__Booking__ClientI__6477ECF3">
             <End Role="Client" EntitySet="Client" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
-          <AssociationSet Name="FK__Booking__EventID__5441852A" Association="Self.FK__Booking__EventID__5441852A">
+          <AssociationSet Name="FK__Booking__EventID__656C112C" Association="Self.FK__Booking__EventID__656C112C">
             <End Role="Event" EntitySet="Event" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
-          <AssociationSet Name="FK__Event__TourID__5535A963" Association="Self.FK__Event__TourID__5535A963">
+          <AssociationSet Name="FK__Event__TourID__66603565" Association="Self.FK__Event__TourID__66603565">
             <End Role="Tour" EntitySet="Tour" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
@@ -102,15 +102,15 @@
       <Schema Namespace="TGVEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Booking">
           <Key>
-            <PropertyRef Name="ClientID" />
-            <PropertyRef Name="EventID" />
+            <PropertyRef Name="BookingID" />
           </Key>
           <Property Name="Payment" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="DateBooked" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ClientID" Type="Int32" Nullable="false" />
           <Property Name="EventID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK__Booking__ClientI__534D60F1" FromRole="Booking" ToRole="Client" />
-          <NavigationProperty Name="Event" Relationship="Self.FK__Booking__EventID__5441852A" FromRole="Booking" ToRole="Event" />
+          <Property Name="BookingID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Booking__ClientI__6477ECF3" FromRole="Booking" ToRole="Client" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Booking__EventID__656C112C" FromRole="Booking" ToRole="Event" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -120,7 +120,7 @@
           <Property Name="GivenName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__ClientI__534D60F1" FromRole="Client" ToRole="Booking" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__ClientI__6477ECF3" FromRole="Client" ToRole="Booking" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -130,8 +130,8 @@
           <Property Name="EventDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Fee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="TourID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__EventID__5441852A" FromRole="Event" ToRole="Booking" />
-          <NavigationProperty Name="Tour" Relationship="Self.FK__Event__TourID__5535A963" FromRole="Event" ToRole="Tour" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__EventID__656C112C" FromRole="Event" ToRole="Booking" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__Event__TourID__66603565" FromRole="Event" ToRole="Tour" />
         </EntityType>
         <EntityType Name="Tour">
           <Key>
@@ -140,9 +140,9 @@
           <Property Name="TourID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TourName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Events" Relationship="Self.FK__Event__TourID__5535A963" FromRole="Tour" ToRole="Event" />
+          <NavigationProperty Name="Events" Relationship="Self.FK__Event__TourID__66603565" FromRole="Tour" ToRole="Event" />
         </EntityType>
-        <Association Name="FK__Booking__ClientI__534D60F1">
+        <Association Name="FK__Booking__ClientI__6477ECF3">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,7 +154,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Booking__EventID__5441852A">
+        <Association Name="FK__Booking__EventID__656C112C">
           <End Role="Event" Type="Self.Event" Multiplicity="1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,7 +166,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Event__TourID__5535A963">
+        <Association Name="FK__Event__TourID__66603565">
           <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
@@ -183,15 +183,15 @@
           <EntitySet Name="Clients" EntityType="Self.Client" />
           <EntitySet Name="Events" EntityType="Self.Event" />
           <EntitySet Name="Tours" EntityType="Self.Tour" />
-          <AssociationSet Name="FK__Booking__ClientI__534D60F1" Association="Self.FK__Booking__ClientI__534D60F1">
+          <AssociationSet Name="FK__Booking__ClientI__6477ECF3" Association="Self.FK__Booking__ClientI__6477ECF3">
             <End Role="Client" EntitySet="Clients" />
             <End Role="Booking" EntitySet="Bookings" />
           </AssociationSet>
-          <AssociationSet Name="FK__Booking__EventID__5441852A" Association="Self.FK__Booking__EventID__5441852A">
+          <AssociationSet Name="FK__Booking__EventID__656C112C" Association="Self.FK__Booking__EventID__656C112C">
             <End Role="Event" EntitySet="Events" />
             <End Role="Booking" EntitySet="Bookings" />
           </AssociationSet>
-          <AssociationSet Name="FK__Event__TourID__5535A963" Association="Self.FK__Event__TourID__5535A963">
+          <AssociationSet Name="FK__Event__TourID__66603565" Association="Self.FK__Event__TourID__66603565">
             <End Role="Tour" EntitySet="Tours" />
             <End Role="Event" EntitySet="Events" />
           </AssociationSet>
@@ -209,6 +209,7 @@
                 <ScalarProperty Name="DateBooked" ColumnName="DateBooked" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
                 <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -6,7 +6,8 @@
 	[ClientID] INT NOT NULL,
 	FOREIGN KEY ([ClientID]) REFERENCES [Client]([ClientID]),
 	[EventID] INT NOT NULL,
-	FOREIGN KEY ([EventID]) REFERENCES [Event]([EventID]),
+	[BookingID]  INT NOT NULL, 
+    FOREIGN KEY ([EventID]) REFERENCES [Event]([EventID]),
 
-	PRIMARY KEY ([ClientID],[EventID]),
+	PRIMARY KEY (BookingID),
 )

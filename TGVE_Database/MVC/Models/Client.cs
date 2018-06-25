@@ -11,7 +11,9 @@ namespace MVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +23,7 @@ namespace MVC.Models
         }
     
         public int ClientID { get; set; }
+        [DisplayName("Given Name")]
         public string GivenName { get; set; }
         public string Surname { get; set; }
         public string Gender { get; set; }

@@ -11,10 +11,13 @@ namespace MVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Booking
     {
         public decimal Payment { get; set; }
+        [DisplayName("Date Booked")]
         public System.DateTime DateBooked { get; set; }
         public int ClientID { get; set; }
         public int EventID { get; set; }

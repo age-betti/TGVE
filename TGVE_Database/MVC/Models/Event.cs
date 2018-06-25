@@ -26,6 +26,7 @@ namespace MVC.Models
 
         [DisplayName("Event Date")]
         public System.DateTime EventDate { get; set; }
+        [DisplayName("Tour Fee")]
         public decimal Fee { get; set; }
         public int TourID { get; set; }
 

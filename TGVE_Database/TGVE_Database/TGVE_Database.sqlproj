@@ -58,4 +58,13 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Client.sql" />
+    <Build Include="Event.sql" />
+    <Build Include="Booking.sql" />
+    <Build Include="Tour.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment_Populate.sql" />
+  </ItemGroup>
 </Project>

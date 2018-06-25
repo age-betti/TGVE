@@ -20,7 +20,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Tour.TourName)
         </th>
-        <th></th>
+        <th>|</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -35,9 +35,7 @@
             @Html.DisplayFor(modelItem => item.Tour.TourName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventID })
+            @Html.ActionLink("Book Now", "Create", new { id = item.EventID}) |
         </td>
     </tr>
 }

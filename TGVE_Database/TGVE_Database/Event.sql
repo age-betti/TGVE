@@ -6,5 +6,7 @@
 	[TourID] INT NOT NULL,
 	FOREIGN KEY ([TourID]) REFERENCES [Tour]([TourID]),
 
+	CONSTRAINT [UniqueID] UNIQUE ([EventID]),
+	CONSTRAINT [UniqueDate] UNIQUE ([EventDate])
 
 )
